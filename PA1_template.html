@@ -319,18 +319,14 @@ legend(&quot;topright&quot;, c(&quot;Modified&quot;, &quot;Original&quot;), col=
 
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
 
-<ol>
-<li>Created a new factor variable in the dataset with two levels &ndash; &ldquo;weekday&rdquo; and &ldquo;weekend&rdquo; indicating whether a given date is a weekday or weekend day.</li>
-</ol>
+<p>Created a new factor variable in the dataset with two levels &ndash; &ldquo;weekday&rdquo; and &ldquo;weekend&rdquo; indicating whether a given date is a weekday or weekend day.</p>
 
 <pre><code class="r">weekdays &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
 moddata$daytype = as.factor(ifelse(is.element(weekdays(as.Date(moddata$date)),weekdays), &quot;Weekday&quot;, &quot;Weekend&quot;))
 modStepsByInterval &lt;- aggregate(steps ~ interval + daytype, moddata, mean)
 </code></pre>
 
-<ol>
-<li>Comparison plot containing a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). </li>
-</ol>
+<p>Comparison plot containing a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). </p>
 
 <pre><code class="r">library(lattice)
 xyplot(modStepsByInterval$steps ~ modStepsByInterval$interval|modStepsByInterval$daytype, main=&quot;Average Steps per Day for each interval&quot;, xlab=&quot;Interval&quot;, ylab=&quot;Steps&quot;, layout=c(1,2), type=&quot;l&quot;)

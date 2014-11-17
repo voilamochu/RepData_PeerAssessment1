@@ -150,7 +150,7 @@ legend("topright", c("Modified", "Original"), col=c("blue", "red"), lwd=10)
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
-1. Created a new factor variable in the dataset with two levels -- "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
+Created a new factor variable in the dataset with two levels -- "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
 ```r
 weekdays <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
@@ -158,7 +158,7 @@ moddata$daytype = as.factor(ifelse(is.element(weekdays(as.Date(moddata$date)),we
 modStepsByInterval <- aggregate(steps ~ interval + daytype, moddata, mean)
 ```
 
-2. Comparison plot containing a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). 
+Comparison plot containing a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). 
 
 ```r
 library(lattice)
